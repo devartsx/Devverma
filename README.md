@@ -24,7 +24,29 @@
         box-shadow: 0 4px 30px rgba(0,0,0,0.05);
         position: sticky;
         top: 0;
-        z-index: 1000;
+        z-index: 1000;<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. Screen fit ke liye ye Meta Tag zaroori hai -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    
+    <!-- Google Fonts (Jo aapne CSS me Poppins use kiya hai) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- 2. Pure CSS Code ko <style> tag ke andar rakhein -->
+    <style>
+        /* Yahan poora CSS code paste karein */
+    </style>
+</head>
+<body>
+
+    <!-- Aapka Header, Hero, Pricing aur Form ka HTML structure yahan aayega -->
+
+</body>
+</html>
+
     }
 
     .logo-container {
