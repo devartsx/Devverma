@@ -69,10 +69,11 @@
         }
 
         .logo-img {
-            height: 42px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 8px var(--accent-glow));
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+        mix-blend-mode: multiply; /* White Background Remove Karne Ke Liye */
+        filter: drop-shadow(0 0 8px var(--accent-glow));
         }
 
         .logo-text {
