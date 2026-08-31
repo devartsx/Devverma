@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Devsketches Studio</title>
+    <title>Devartsx</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -390,7 +390,7 @@
     <header>
         <div class="logo-container">
             <img src="https://via.placeholder.com/50" alt="Logo">
-            <h1>Devartsx<span>Studio</span></h1>
+            <h1>Devartsx<span></span></h1>
         </div>
         <nav>
             <a href="#hero">Home</a>
@@ -464,7 +464,7 @@
     </section>
 
     <footer>
-        <h3>Devartsx <span>Studio</span></h3>
+        <h3>Devartsx <span></span></h3>
         <p>© 2026 All Rights Reserved.</p>
     </footer>
 
