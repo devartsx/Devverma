@@ -11,7 +11,7 @@
             --primary-yellow: #FFD700;
             --dark-yellow: #f3c600;
             --text-color: #1a1a1a;
-            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-bg: rgba(255, 255, 255, 0.95);
             --shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
@@ -29,7 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* Header with Glassmorphism */
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -153,7 +153,7 @@
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            animation: fadeInUp 1.4s ease;
+            display: inline-block;
         }
 
         .btn:hover {
@@ -193,7 +193,6 @@
             transition: all 0.5s ease;
             border-top: 10px solid var(--primary-yellow);
             transform: perspective(1000px) rotateX(8deg);
-            position: relative;
         }
 
         .price-card:hover {
@@ -220,12 +219,78 @@
             font-size: 1.05rem;
         }
 
+        /* 3D Order Form Box Section */
+        .order-section {
+            padding: 40px 8%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .order-box {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 50px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border: 2px solid #ffe875;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.4s ease;
+        }
+
+        .order-box:hover {
+            transform: perspective(1000px) rotateX(0deg);
+        }
+
+        .order-box h3 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+        }
+
+        .order-box h3 span {
+            color: #b8970b;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            background: #fafafa;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary-yellow);
+            background: #fff;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .order-box .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
         /* 3D Portfolio Grid */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 20px 8% 100px;
+            padding: 20px 8% 80px;
         }
 
         .portfolio-item {
@@ -297,7 +362,6 @@
             margin-top: 10px;
         }
 
-        /* Keyframe Animations */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -320,6 +384,7 @@
         <nav>
             <a href="#home">Home</a>
             <a href="#pricing">Pricing</a>
+            <a href="#order">Order Now</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -329,7 +394,7 @@
     <section class="hero" id="home">
         <h2>Realism Brought To Life With <span>Charcoal & Graphite</span></h2>
         <p>Welcome to Devartsx. Specializing in highly detailed, handmade professional charcoal and graphite pencil sketches.</p>
-        <a href="https://wa.me/917827417956?text=Hi%20Devartsx,%20I%20want%20to%20order%20a%20sketch!" class="btn" target="_blank">Order Commission Now</a>
+        <a href="#order" class="btn">Order Now</a>
     </section>
 
     <!-- Pricing Section -->
@@ -339,16 +404,50 @@
             <h3>A4 Size Sketch</h3>
             <div class="price">₹599</div>
             <p>Detailed single/couple portrait crafted carefully on premium A4 sheet using fine charcoal & graphite.</p>
-            <a href="https://wa.me/917827417956?text=Hi,%20I%20want%20to%20book%20an%20A4%20Size%20Sketch%20for%20₹599" class="btn" target="_blank">Book A4 Now</a>
+            <a href="#order" class="btn">Order Now (A4)</a>
         </div>
 
         <div class="price-card">
             <h3>A3 Size Sketch</h3>
             <div class="price">₹999</div>
             <p>Large master portrait with extreme detailing on heavy professional A3 art paper.</p>
-            <a href="https://wa.me/917827417956?text=Hi,%20I%20want%20to%20book%20an%20A3%20Size%20Sketch%20for%20₹999" class="btn" target="_blank">Book A3 Now</a>
+            <a href="#order" class="btn">Order Now (A3)</a>
         </div>
     </div>
+
+    <!-- 3D Order Form Box Section -->
+    <section class="order-section" id="order">
+        <div class="order-box">
+            <h3>Quick <span>Order Form</span></h3>
+            <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label for="clientName">Your Name</label>
+                    <input type="text" id="clientName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientNumber">Your Mobile Number</label>
+                    <input type="tel" id="clientNumber" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sketchSize">Select Size & Price</label>
+                    <select id="sketchSize" required>
+                        <option value="" disabled selected>Choose sketch size</option>
+                        <option value="A4 Size - ₹599">A4 Size - ₹599</option>
+                        <option value="A3 Size - ₹999">A3 Size - ₹999</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="customDetails">Customization & Instructions (Logo, Photo details etc.)</label>
+                    <textarea id="customDetails" rows="4" placeholder="Mention any custom requirement, like adding a specific logo or text on sketch..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Order to WhatsApp 🚀</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Portfolio Section -->
     <h2 class="section-title" id="portfolio">Artistic <span>Portfolio</span></h2>
@@ -377,6 +476,26 @@
         <p>📞 Direct Commission WhatsApp/Call: <strong>+91 7827417956</strong></p>
         <p style="font-size: 0.9rem; color: #777; margin-top: 20px;">© 2026 Devartsx. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript for Direct WhatsApp Order Transmission -->
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('clientName').value;
+            let number = document.getElementById('clientNumber').value;
+            let size = document.getElementById('sketchSize').value;
+            let custom = document.getElementById('customDetails').value;
+
+            let phoneNumber = "917827417956";
+            
+            let message = `Hello Devartsx! I want to place a new sketch order.%0A%0A*Name:* ${name}%0A*Mobile:* ${number}%0A*Size:* ${size}%0A*Customization/Logo Details:* ${custom}`;
+            
+            let whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
 
 </body>
 </html>
