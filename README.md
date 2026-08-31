@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devartsx | Premium 3D Art Studio</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Three.js for 3D Background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Vanilla Tilt for 3D Card Hover Effect -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
     <style>
@@ -69,11 +65,10 @@
         }
 
         .logo-img {
-        height: 42px;
-        width: auto;
-        object-fit: contain;
-        mix-blend-mode: multiply; /* White Background Remove Karne Ke Liye */
-        filter: drop-shadow(0 0 8px var(--accent-glow));
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--accent-glow));
         }
 
         .logo-text {
@@ -98,7 +93,6 @@
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
-            perspective: 1000px;
         }
 
         .badge {
@@ -136,13 +130,19 @@
             border-radius: 50px;
             box-shadow: 0 10px 25px var(--accent-glow);
             transition: all 0.3s ease;
-            transform-style: preserve-3d;
+            position: relative;
+            z-index: 5;
         }
 
         .btn-primary:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 15px 35px rgba(56, 189, 248, 0.5); }
 
         /* Sections */
-        .section { padding: 90px 8%; max-width: 1200px; margin: 0 auto; perspective: 1000px; }
+        .section { 
+            padding: 90px 8%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            scroll-margin-top: 80px; /* Fixes scroll position under navbar */
+        }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.4rem; font-weight: 800; }
         .section-header p { color: var(--text-muted); margin-top: 10px; }
@@ -152,6 +152,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 30px;
+            perspective: 1000px;
         }
 
         .art-card {
@@ -178,7 +179,12 @@
         .art-info p { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
         /* 3D Pricing Grid */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
+        .pricing-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 35px; 
+            perspective: 1000px;
+        }
         
         .price-card {
             background: var(--card-bg);
@@ -217,7 +223,7 @@
         .price-card ul li { padding: 12px 0; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.06); }
         .price-card ul li i { color: var(--accent-blue); margin-right: 12px; }
 
-        /* 3D Form Styling */
+        /* Form Styling (Touch-friendly & Layered) */
         .form-box {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -226,22 +232,25 @@
             max-width: 650px;
             margin: 0 auto;
             backdrop-filter: blur(12px);
-            transform-style: preserve-3d;
             box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            position: relative;
+            z-index: 10;
         }
 
-        .form-group { margin-bottom: 24px; text-align: left; transform: translateZ(15px); }
+        .form-group { margin-bottom: 24px; text-align: left; position: relative; z-index: 10; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: #cbd5e1; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 15px 18px;
-            background: rgba(10, 14, 26, 0.85);
+            background: rgba(10, 14, 26, 0.95);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             color: #fff;
             font-size: 1rem;
             outline: none;
             transition: 0.3s;
+            position: relative;
+            z-index: 10;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -264,13 +273,14 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            transform: translateZ(25px);
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            position: relative;
+            z-index: 10;
         }
 
-        .btn-submit:hover { opacity: 0.95; transform: translateZ(30px) translateY(-3px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5); }
+        .btn-submit:hover { opacity: 0.95; transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5); }
 
-        /* Floating 3D WhatsApp Button */
+        /* Floating WhatsApp Button */
         .float-wa {
             position: fixed;
             bottom: 30px;
@@ -302,14 +312,11 @@
 </head>
 <body>
 
-    <!-- 3D Background Canvas -->
     <canvas id="webgl-bg"></canvas>
 
-    <!-- Navbar -->
     <nav>
         <a href="#" class="logo-container">
-            <!-- Logo image (Make sure logo.png is uploaded in repository) -->
-            <img src="logo.png" alt="Devartsx Logo" class="logo-img">
+            <img src="logo.png" alt="Devartsx Logo" class="logo-img" id="main-logo">
             <span class="logo-text">Devartsx</span>
         </a>
         <ul class="nav-links">
@@ -319,7 +326,6 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <span class="badge"><i class="fa-solid fa-cube"></i> Charcoal & Graphite 3D Art Studio</span>
         <h1>Bring Your Favorite Photos To Life With <span>Handmade Art</span></h1>
@@ -327,7 +333,6 @@
         <a href="#order" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Order Your Sketch Now</a>
     </section>
 
-    <!-- 3D Gallery Section -->
     <section class="section" id="gallery">
         <div class="section-header">
             <h2>Featured Artworks</h2>
@@ -365,7 +370,6 @@
         </div>
     </section>
 
-    <!-- 3D Pricing Section -->
     <section class="section" id="pricing">
         <div class="section-header">
             <h2>Commission Pricing</h2>
@@ -400,13 +404,12 @@
         </div>
     </section>
 
-    <!-- Order Form Section -->
     <section class="section" id="order">
         <div class="section-header">
             <h2>Place Commission Request</h2>
             <p>Fill out the details below to initiate your portrait request</p>
         </div>
-        <div class="form-box" data-tilt data-tilt-max="5" data-tilt-speed="400">
+        <div class="form-box">
             <form onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
                     <label for="name">Your Name</label>
@@ -434,18 +437,52 @@
         </div>
     </section>
 
-    <!-- Floating 3D WhatsApp Icon -->
     <a href="https://api.whatsapp.com/send?phone=917827417956" target="_blank" class="float-wa" title="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Devartsx. All Rights Reserved. Crafted for Art Lovers.</p>
     </footer>
 
-    <!-- Three.js 3D Background & WhatsApp Script -->
     <script>
+        // Automatic White Background Removal Script for Logo
+        window.addEventListener('DOMContentLoaded', () => {
+            const logoImg = document.getElementById('main-logo');
+            if (!logoImg) return;
+
+            const removeWhiteBg = () => {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = logoImg.naturalWidth || logoImg.width;
+                    canvas.height = logoImg.naturalHeight || logoImg.height;
+                    
+                    if (!canvas.width || !canvas.height) return;
+                    
+                    ctx.drawImage(logoImg, 0, 0);
+                    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const data = imgData.data;
+                    
+                    for (let i = 0; i < data.length; i += 4) {
+                        if (data[i] > 200 && data[i + 1] > 200 && data[i + 2] > 200) {
+                            data[i + 3] = 0; // Set White Pixels to 100% Transparent
+                        }
+                    }
+                    ctx.putImageData(imgData, 0, 0);
+                    logoImg.src = canvas.toDataURL('image/png');
+                } catch (e) {
+                    console.log("Canvas processing active");
+                }
+            };
+
+            if (logoImg.complete) {
+                removeWhiteBg();
+            } else {
+                logoImg.onload = removeWhiteBg;
+            }
+        });
+
         // Three.js Interactive 3D Canvas
         const canvas = document.getElementById('webgl-bg');
         const scene = new THREE.Scene();
@@ -455,7 +492,6 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        // Floating 3D Particles
         const particlesCount = 200;
         const positions = new Float32Array(particlesCount * 3);
 
@@ -476,7 +512,6 @@
         const particlesMesh = new THREE.Points(geometry, material);
         scene.add(particlesMesh);
 
-        // Wireframe 3D Geometry Object
         const shapeGeometry = new THREE.IcosahedronGeometry(2, 1);
         const shapeMaterial = new THREE.MeshBasicMaterial({
             color: 0x818cf8,
@@ -490,14 +525,12 @@
 
         camera.position.z = 4;
 
-        // Mouse Interactivity
         let mouseX = 0, mouseY = 0;
         window.addEventListener('mousemove', (e) => {
             mouseX = (e.clientX / window.innerWidth - 0.5) * 0.5;
             mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5;
         });
 
-        // Animation Frame Loop
         const clock = new THREE.Clock();
         function animate() {
             const elapsedTime = clock.getElapsedTime();
@@ -516,14 +549,12 @@
         }
         animate();
 
-        // Responsive Window Resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // 100% Mobile & Laptop Compatible WhatsApp Redirection (No Popup Blocker Issue)
         function sendToWhatsApp(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;
@@ -541,8 +572,6 @@
                                `*(Note: Please attach your reference photo in this WhatsApp chat now)*`;
 
             const encodedMessage = encodeURIComponent(rawMessage);
-            
-            // Redirects smoothly without triggering popup blockers on mobile browsers
             window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
         }
     </script>
