@@ -390,7 +390,7 @@
     <header>
         <div class="logo-container">
             <img src="https://via.placeholder.com/50" alt="Logo">
-            <h1>Devsketches<span>Studio</span></h1>
+            <h1>Devartsx<span>Studio</span></h1>
         </div>
         <nav>
             <a href="#hero">Home</a>
@@ -437,8 +437,8 @@
                 <div class="form-group">
                     <label>Select Plan</label>
                     <select>
-                        <option>Basic Sketch (₹499)</option>
-                        <option>Pro Artwork (₹999)</option>
+                        <option>A5 size Sketch (₹599)</option>
+                        <option>A3 size Artwork (₹999)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -464,7 +464,7 @@
     </section>
 
     <footer>
-        <h3>Devsketches <span>Studio</span></h3>
+        <h3>Devartsx <span>Studio</span></h3>
         <p>© 2026 All Rights Reserved.</p>
     </footer>
 
