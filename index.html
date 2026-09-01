@@ -435,6 +435,51 @@
         .testimonial-card p { font-style: italic; color: #441; font-size: 0.95rem; margin-bottom: 15px; }
         .testimonial-card h5 { font-weight: 700; color: #222; }
 
+        /* Instagram Banner Section */
+        .insta-banner {
+            padding: 20px 8% 40px;
+            text-align: center;
+        }
+
+        .insta-box {
+            background: linear-gradient(135deg, rgba(255, 225, 230, 0.7), rgba(245, 208, 255, 0.7));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 35px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow);
+        }
+
+        .insta-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .insta-btn {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(220, 39, 67, 0.35);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .insta-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(220, 39, 67, 0.5);
+        }
+
         /* FAQ Accordion Section */
         .faq-container {
             max-width: 700px;
@@ -573,7 +618,7 @@
             .hero h2 { font-size: 2.1rem; }
             .hero p { font-size: 1rem; }
             .section-title { font-size: 1.9rem; margin: 45px 0 25px; }
-            .pricing-container, .steps-container, .testimonials-container { padding: 0 5% 30px; gap: 20px; }
+            .pricing-container, .steps-container, .testimonials-container, .insta-banner { padding: 0 5% 30px; gap: 20px; }
             .order-section { padding: 10px 5% 40px; }
             .order-box { padding: 25px 18px; }
             .portfolio-grid { padding: 0 5% 30px; grid-template-columns: 1fr; }
@@ -686,6 +731,17 @@
             </div>
             <p>"Superb work! The delivery was secure and the sketch looked even better than the real photo."</p>
             <h5>- Priya Verma</h5>
+        </div>
+    </div>
+
+    <!-- Instagram Follow Section -->
+    <div class="insta-banner">
+        <div class="insta-box">
+            <h3>Connect with us on Instagram</h3>
+            <p style="color: #555; font-size: 0.95rem; margin-bottom: 5px;">See latest sketch reels, behind-the-scenes & daily artwork updates.</p>
+            <a href="https://instagram.com/devartsx" target="_blank" class="insta-btn">
+                <i class="fa-brands fa-instagram" style="font-size: 1.3rem;"></i> Follow me on Instagram
+            </a>
         </div>
     </div>
 
