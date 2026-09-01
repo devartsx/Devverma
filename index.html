@@ -81,12 +81,26 @@
             100% { transform: translate(50px, 60px) scale(1.15) rotate(15deg); }
         }
 
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(90deg, #b8970b, #ffd700, #b8970b);
+            background-size: 200% auto;
+            color: #111;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+            z-index: 1001;
+        }
+
         /* Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 8%;
+            padding: 16px 8%;
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -95,12 +109,6 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 215, 0, 0.3);
-            animation: slideDownHeader 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes slideDownHeader {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
 
         .logo-container {
@@ -110,24 +118,22 @@
         }
 
         .logo-container img {
-            width: 52px;
-            height: 52px;
+            width: 50px;
+            height: 50px;
             object-fit: cover;
             border-radius: 50%;
             border: 2px solid var(--primary-yellow);
             box-shadow: 0 0 15px var(--gold-glow);
-            transition: transform 0.5s ease, box-shadow 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
         .logo-container img:hover {
             transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
         }
 
         .logo-container h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
-            letter-spacing: 0.5px;
         }
 
         .shimmer-text {
@@ -144,13 +150,14 @@
 
         nav {
             display: flex;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
+            font-size: 0.95rem;
             position: relative;
             transition: 0.3s;
         }
@@ -172,7 +179,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 80vh;
+            min-height: 75vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -189,7 +196,7 @@
         }
 
         .hero h2 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
             line-height: 1.2;
             font-weight: 800;
@@ -210,7 +217,7 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: #555;
             max-width: 600px;
             margin-bottom: 30px;
@@ -219,8 +226,8 @@
         .btn {
             background: linear-gradient(135deg, #ffd700, #ffcc00);
             color: #111;
-            padding: 16px 40px;
-            font-size: 1.1rem;
+            padding: 16px 36px;
+            font-size: 1.05rem;
             font-weight: 700;
             border: none;
             border-radius: 50px;
@@ -246,10 +253,7 @@
             transition: 0.5s;
         }
 
-        .btn:hover::after {
-            left: 100%;
-        }
-
+        .btn:hover::after { left: 100%; }
         .btn:hover {
             transform: translateY(-4px) scale(1.03);
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.7);
@@ -258,17 +262,65 @@
         /* Section Titles */
         .section-title {
             text-align: center;
-            font-size: 2.6rem;
-            margin: 70px 0 35px;
+            font-size: 2.4rem;
+            margin: 60px 0 30px;
             font-weight: 800;
         }
 
-        /* Portfolio Grid with Liquid Glass & Smooth Hover Animation */
+        /* How to Order Steps */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            padding: 0 8% 40px;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            box-shadow: 0 5px 15px var(--gold-glow);
+        }
+
+        .step-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            padding: 0 8% 60px;
+            padding: 0 8% 40px;
         }
 
         .portfolio-item {
@@ -286,9 +338,7 @@
             animation: floatCard 6s ease-in-out infinite;
         }
 
-        .portfolio-item:nth-child(even) {
-            animation-delay: 3s;
-        }
+        .portfolio-item:nth-child(even) { animation-delay: 3s; }
 
         @keyframes floatCard {
             0%, 100% { transform: translateY(0); }
@@ -306,12 +356,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.6s ease;
         }
 
-        .portfolio-item:hover img {
-            transform: scale(1.12);
-        }
+        .portfolio-item:hover img { transform: scale(1.12); }
 
         .portfolio-item::after {
             content: attr(data-title);
@@ -326,18 +374,16 @@
             font-size: 1.05rem;
             text-align: center;
             transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s ease;
         }
 
-        .portfolio-item:hover::after {
-            transform: translateY(0);
-        }
+        .portfolio-item:hover::after { transform: translateY(0); }
 
-        /* Pricing Cards with Liquid Glass */
+        /* Pricing Cards */
         .pricing-container {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 35px;
             padding: 0 8% 40px;
             flex-wrap: wrap;
         }
@@ -347,49 +393,99 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 24px;
-            padding: 45px 35px;
-            width: 340px;
+            padding: 40px 30px;
+            width: 320px;
             max-width: 100%;
             text-align: center;
             box-shadow: var(--shadow);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-top: 8px solid var(--primary-yellow);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.4s ease;
         }
 
         .price-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.6);
         }
 
-        .price-card h3 {
-            font-size: 1.8rem;
+        .price-card h3 { font-size: 1.7rem; margin-bottom: 10px; }
+        .price-card .price { font-size: 2.8rem; color: #b8970b; margin-bottom: 15px; font-weight: 800; }
+        .price-card p { color: #666; margin-bottom: 20px; font-size: 0.95rem; }
+
+        /* Testimonials Section */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 8% 40px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+        }
+
+        .testimonial-card .stars { color: #f59e0b; margin-bottom: 12px; font-size: 0.9rem; }
+        .testimonial-card p { font-style: italic; color: #441; font-size: 0.95rem; margin-bottom: 15px; }
+        .testimonial-card h5 { font-weight: 700; color: #222; }
+
+        /* FAQ Accordion Section */
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 8% 40px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 14px;
             margin-bottom: 12px;
-            color: #222;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: 0.3s;
         }
 
-        .price-card .price {
-            font-size: 3rem;
-            color: #b8970b;
-            margin-bottom: 20px;
-            font-weight: 800;
-            transition: transform 0.3s ease;
+        .faq-question {
+            padding: 18px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .price-card:hover .price {
-            transform: scale(1.05);
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            color: #555;
+            font-size: 0.95rem;
+            transition: max-height 0.3s ease, padding 0.3s ease;
         }
 
-        .price-card p {
-            color: #666;
-            margin-bottom: 25px;
-            font-size: 1rem;
+        .faq-item.active .faq-answer {
+            max-height: 150px;
+            padding-bottom: 18px;
         }
 
-        /* Order Form Box with Liquid Glass */
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-question i { transition: transform 0.3s ease; }
+
+        /* Order Form Box */
         .order-section {
-            padding: 30px 8% 60px;
+            padding: 20px 8% 50px;
             display: flex;
             justify-content: center;
         }
@@ -399,45 +495,27 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 28px;
-            padding: 45px;
+            padding: 40px;
             width: 100%;
             max-width: 580px;
             box-shadow: var(--shadow);
             border: 1px solid rgba(255, 255, 255, 0.9);
             border-top: 6px solid var(--primary-yellow);
-            transition: all 0.4s ease;
         }
 
-        .order-box:hover {
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.25);
-        }
+        .order-box h3 { text-align: center; font-size: 2rem; margin-bottom: 25px; }
 
-        .order-box h3 {
-            text-align: center;
-            font-size: 2.1rem;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #333;
-        }
-
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #333; font-size: 0.95rem; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 14px 16px;
+            padding: 13px 15px;
             border: 2px solid rgba(226, 226, 226, 0.8);
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             outline: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: rgba(250, 250, 250, 0.8);
+            transition: 0.3s;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -446,20 +524,16 @@
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
         }
 
-        .order-box .btn {
-            width: 100%;
-            margin-top: 10px;
-            justify-content: center;
-        }
+        .order-box .btn { width: 100%; margin-top: 10px; justify-content: center; }
 
-        /* Floating Order Button with Pulse Animation */
+        /* Floating Order Button */
         .floating-order-btn {
             position: fixed;
             bottom: 25px;
             right: 25px;
             background: linear-gradient(135deg, #25d366, #128c7e);
             color: #fff;
-            padding: 14px 24px;
+            padding: 14px 22px;
             border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
@@ -477,53 +551,42 @@
             50% { transform: scale(1.06); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7); }
         }
 
-        .floating-order-btn:hover {
-            animation-play-state: paused;
-            transform: scale(1.1) translateY(-4px);
-        }
+        .floating-order-btn:hover { animation-play-state: paused; transform: scale(1.1) translateY(-4px); }
 
         /* Footer */
         footer {
             background: #111;
             color: #fff;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
+            padding: 35px 20px;
+            margin-top: 30px;
             border-top: 5px solid var(--primary-yellow);
         }
 
-        footer h3 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        footer p {
-            color: #aaa;
-            font-size: 0.95rem;
-        }
+        footer h3 { font-size: 1.6rem; margin-bottom: 6px; }
+        footer p { color: #aaa; font-size: 0.9rem; }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 12px;
-                padding: 15px 5%;
-            }
-
+            header { flex-direction: column; gap: 10px; padding: 12px 5%; }
             nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            .hero h2 { font-size: 2.2rem; }
+            .hero h2 { font-size: 2.1rem; }
             .hero p { font-size: 1rem; }
-            .section-title { font-size: 2rem; margin: 50px 0 25px; }
-            .pricing-container { padding: 0 5% 30px; gap: 25px; }
-            .price-card { padding: 35px 20px; }
-            .order-section { padding: 20px 5% 40px; }
-            .order-box { padding: 25px 20px; }
-            .portfolio-grid { padding: 0 5% 40px; grid-template-columns: 1fr; }
-            .floating-order-btn { bottom: 15px; right: 15px; padding: 12px 18px; font-size: 0.95rem; }
+            .section-title { font-size: 1.9rem; margin: 45px 0 25px; }
+            .pricing-container, .steps-container, .testimonials-container { padding: 0 5% 30px; gap: 20px; }
+            .order-section { padding: 10px 5% 40px; }
+            .order-box { padding: 25px 18px; }
+            .portfolio-grid { padding: 0 5% 30px; grid-template-columns: 1fr; }
+            .floating-order-btn { bottom: 15px; right: 15px; padding: 11px 16px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        🎉 Special Offer: Free Secure Packaging & Fast Delivery on all Orders! 🎨
+    </div>
 
     <!-- Glowing Background Orbs -->
     <div class="ambient-bg">
@@ -539,18 +602,39 @@
         </div>
         <nav>
             <a href="#hero">Home</a>
+            <a href="#steps">How It Works</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#pricing">Pricing</a>
-            <a href="#order">Order Sketch</a>
+            <a href="#order">Order</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <h2>Handmade Realistic <span>Sketches</span></h2>
-        <p>Get custom graphite & charcoal portraits created with high precision. Perfect gift for your loved ones.</p>
+        <p>Get custom graphite & charcoal portraits created with high precision. The ultimate timeless gift for your loved ones.</p>
         <a href="#order" class="btn"><i class="fa-solid fa-paintbrush"></i> Order Your Sketch</a>
     </section>
+
+    <!-- How It Works Section -->
+    <h2 class="section-title" id="steps">How to <span class="shimmer-text">Order</span></h2>
+    <div class="steps-container">
+        <div class="step-card">
+            <div class="step-icon">1</div>
+            <h4>Choose Photo</h4>
+            <p>Select a clear reference photo you want to convert into a sketch.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-icon">2</div>
+            <h4>Fill Details</h4>
+            <p>Submit your name, size, and custom instructions on our form below.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-icon">3</div>
+            <h4>WhatsApp & Relax</h4>
+            <p>Send details to WhatsApp, share your photo, and get doorstep delivery!</p>
+        </div>
+    </div>
 
     <!-- Portfolio Grid -->
     <h2 class="section-title" id="portfolio">My <span class="shimmer-text">Portfolio</span></h2>
@@ -575,14 +659,65 @@
         <div class="price-card">
             <h3>A4 Size Sketch</h3>
             <div class="price">₹599</div>
-            <p>Perfect choice for single face portraits & closeups with graphite shading.</p>
+            <p>Perfect choice for single face portraits & closeups with fine graphite shading.</p>
             <a href="#order" class="btn">Book A4 Size</a>
         </div>
         <div class="price-card">
             <h3>A3 Size Sketch</h3>
             <div class="price">₹999</div>
-            <p>Best for detailed couple portraits, religious art & deep charcoal work.</p>
+            <p>Best for detailed couple portraits, religious art & deep charcoal artwork.</p>
             <a href="#order" class="btn">Book A3 Size</a>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <h2 class="section-title">Client <span class="shimmer-text">Reviews</span></h2>
+    <div class="testimonials-container">
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>"Ordered an A3 couple portrait for my anniversary. The detailing is just mind-blowing! Everyone loved it."</p>
+            <h5>- Aman Sharma</h5>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>"Superb work! The delivery was secure and the sketch looked even better than the real photo."</p>
+            <h5>- Priya Verma</h5>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <h2 class="section-title">Frequently Asked <span class="shimmer-text">Questions</span></h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Kitne dino mein sketch tayar ho jata hai?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Ek sketch ko banane aur dry hone mein lagbhag 3 se 5 working days lagte hain, uske baad dispatch hota hai.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Kya photo WhatsApp par bhejni hogi?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Haan! Form submit karne ke baad jab aap WhatsApp par redirect honge, tab wahan apni clear reference photo bhej sakte hain.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Frame sath mein milta hai kya?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Sketches ko safely roll karke hard safety tube mein bheja jata hai taaki damage na ho. Frame aap apne local market se easily karwa sakte hain.
+            </div>
         </div>
     </div>
 
@@ -608,7 +743,7 @@
                 </div>
                 <div class="form-group">
                     <label for="notes">Special Instructions & Customisations</label>
-                    <textarea id="notes" rows="4" placeholder="Any specific requirements, name writing, background changes, photo merging..."></textarea>
+                    <textarea id="notes" rows="4" placeholder="Any specific requirements, name writing, background changes..."></textarea>
                 </div>
                 <button type="submit" id="submitBtn" class="btn"><i class="fa-brands fa-whatsapp" style="font-size:1.3rem;"></i> Order via WhatsApp</button>
             </form>
@@ -628,6 +763,12 @@
 
     <!-- Interactive Script -->
     <script>
+        // FAQ Accordion Toggle
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            parent.classList.toggle('active');
+        }
+
         // Send Order Direct to WhatsApp
         function sendToWhatsApp(event) {
             event.preventDefault();
