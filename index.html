@@ -855,8 +855,12 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="address">Delivery Address (Full Address with Pincode)</label>
+                    <textarea id="address" rows="3" required placeholder="House No, Street, City, State, Pincode"></textarea>
+                </div>
+                <div class="form-group">
                     <label for="notes">Special Instructions & Customisations</label>
-                    <textarea id="notes" rows="4" placeholder="Any specific requirements, name writing, background changes..."></textarea>
+                    <textarea id="notes" rows="3" placeholder="Any specific requirements, name writing, background changes..."></textarea>
                 </div>
                 <button type="submit" id="submitBtn" class="btn"><i class="fa-brands fa-whatsapp" style="font-size:1.3rem;"></i> Order via WhatsApp</button>
             </form>
@@ -894,6 +898,7 @@
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const size = document.getElementById('size').value;
+            const address = document.getElementById('address').value;
             const notes = document.getElementById('notes').value || 'None';
             
             const whatsappNumber = "917827417956";
@@ -901,6 +906,7 @@
                             `*Name:* ${name}\n` +
                             `*Phone:* ${phone}\n` +
                             `*Selected Size:* ${size}\n` +
+                            `*Delivery Address:* ${address}\n` +
                             `*Customisation Instructions:* ${notes}\n\n` +
                             `*(Note: Reference photo will be shared here)*`;
 
