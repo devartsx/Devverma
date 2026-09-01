@@ -493,6 +493,30 @@
             transform: translateZ(35px);
         }
 
+        /* Floating Order Button */
+        .floating-order-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .floating-order-btn:hover {
+            transform: scale(1.08) translateY(-4px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
+        }
+
         /* Footer */
         footer {
             background: #111;
@@ -530,6 +554,7 @@
             .order-section { padding: 20px 5% 40px; }
             .order-box { padding: 25px 20px; }
             .portfolio-grid { padding: 0 5% 40px; grid-template-columns: 1fr; }
+            .floating-order-btn { bottom: 15px; right: 15px; padding: 12px 18px; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -607,17 +632,4 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">WhatsApp Phone Number</label>
-                    <input type="tel" id="phone" required placeholder="Enter mobile number">
-                </div>
-                <div class="form-group">
-                    <label for="size">Select Artwork Size</label>
-                    <select id="size" required>
-                        <option value="A4 Size Sketch (₹599)">A4 Size Sketch - ₹599</option>
-                        <option value="A3 Size Sketch (₹999)">A3 Size Sketch - ₹999</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="imageUpload">Upload Reference Image</label>
-                    <input type="file" id="imageUpload" accept="image/*" required onchange="handleImagePreview(event)">
-                    <div id="previewBox" class="image-preview-box">
-                        <img id="previewImg"
+      
