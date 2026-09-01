@@ -505,7 +505,7 @@
     <h2 class="section-title" id="portfolio">My <span class="shimmer-text">Portfolio</span></h2>
     <div class="portfolio-grid">
         <div class="portfolio-item" data-title="Shiv Parvati Sketch">
-            <img src="shiva-parvati.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600'" alt="Shiv Parvati Sketch">
+            <img src="SAVE_20260811_152926.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600'" alt="Shiv Parvati Sketch">
         </div>
         <div class="portfolio-item" data-title="Anime Art">
             <img src="file_000000002b608211b7d1d757faceb747.png" onerror="this.src='https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600'" alt="Anime Art Giyu">
