@@ -566,7 +566,7 @@
 
     <!-- Footer -->
     <footer>
-        <h3>Devarts<span class="shimmer-text">x</span> Studio</h3>
+        <h3>Devarts<span class="shimmer-text">x</span> </h3>
         <p>&copy; 2026 Devartsx. All Rights Reserved.</p>
     </footer>
 
