@@ -151,6 +151,7 @@
         nav {
             display: flex;
             gap: 20px;
+            align-items: center;
         }
 
         nav a {
@@ -177,9 +178,26 @@
         nav a:hover::after { width: 100%; }
         nav a:hover { color: #b8970b; }
 
+        /* Nav Instagram Highlight Link */
+        .nav-insta-link {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff !important;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+            transition: transform 0.3s ease !important;
+        }
+
+        .nav-insta-link::after { display: none !important; }
+        .nav-insta-link:hover { transform: translateY(-2px); }
+
         /* Hero Section */
         .hero {
-            min-height: 75vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -220,13 +238,20 @@
             font-size: 1.15rem;
             color: #555;
             max-width: 600px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn {
             background: linear-gradient(135deg, #ffd700, #ffcc00);
             color: #111;
-            padding: 16px 36px;
+            padding: 15px 32px;
             font-size: 1.05rem;
             font-weight: 700;
             border: none;
@@ -259,6 +284,16 @@
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.7);
         }
 
+        /* Hero Instagram Button */
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(220, 39, 67, 0.35);
+        }
+        .btn-insta:hover {
+            box-shadow: 0 20px 40px rgba(220, 39, 67, 0.6);
+        }
+
         /* Section Titles */
         .section-title {
             text-align: center;
@@ -287,9 +322,7 @@
             transition: transform 0.3s ease;
         }
 
-        .step-card:hover {
-            transform: translateY(-6px);
-        }
+        .step-card:hover { transform: translateY(-6px); }
 
         .step-icon {
             width: 60px;
@@ -305,15 +338,8 @@
             box-shadow: 0 5px 15px var(--gold-glow);
         }
 
-        .step-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .step-card p {
-            font-size: 0.9rem;
-            color: #666;
-        }
+        .step-card h4 { font-size: 1.2rem; margin-bottom: 8px; }
+        .step-card p { font-size: 0.9rem; color: #666; }
 
         /* Portfolio Grid */
         .portfolio-grid {
@@ -522,10 +548,7 @@
             padding-bottom: 18px;
         }
 
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
         .faq-question i { transition: transform 0.3s ease; }
 
         /* Order Form Box */
@@ -571,7 +594,7 @@
 
         .order-box .btn { width: 100%; margin-top: 10px; justify-content: center; }
 
-        /* Floating Order Button */
+        /* Floating Order Button (Right Side) */
         .floating-order-btn {
             position: fixed;
             bottom: 25px;
@@ -598,6 +621,33 @@
 
         .floating-order-btn:hover { animation-play-state: paused; transform: scale(1.1) translateY(-4px); }
 
+        /* Floating Instagram Button (Left Side) */
+        .floating-insta-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+            padding: 14px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(220, 39, 67, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: instaPulse 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes instaPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(220, 39, 67, 0.4); }
+            50% { transform: scale(1.06); box-shadow: 0 15px 35px rgba(220, 39, 67, 0.7); }
+        }
+
+        .floating-insta-btn:hover { animation-play-state: paused; transform: scale(1.1) translateY(-4px); }
+
         /* Footer */
         footer {
             background: #111;
@@ -614,7 +664,7 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 10px; padding: 12px 5%; }
-            nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
             .hero h2 { font-size: 2.1rem; }
             .hero p { font-size: 1rem; }
             .section-title { font-size: 1.9rem; margin: 45px 0 25px; }
@@ -623,6 +673,7 @@
             .order-box { padding: 25px 18px; }
             .portfolio-grid { padding: 0 5% 30px; grid-template-columns: 1fr; }
             .floating-order-btn { bottom: 15px; right: 15px; padding: 11px 16px; font-size: 0.9rem; }
+            .floating-insta-btn { bottom: 15px; left: 15px; padding: 11px 16px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -650,6 +701,9 @@
             <a href="#steps">How It Works</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#pricing">Pricing</a>
+            <a href="https://instagram.com/devartsx" target="_blank" class="nav-insta-link">
+                <i class="fa-brands fa-instagram"></i> devartsx
+            </a>
             <a href="#order">Order</a>
         </nav>
     </header>
@@ -658,7 +712,10 @@
     <section class="hero" id="hero">
         <h2>Handmade Realistic <span>Sketches</span></h2>
         <p>Get custom graphite & charcoal portraits created with high precision. The ultimate timeless gift for your loved ones.</p>
-        <a href="#order" class="btn"><i class="fa-solid fa-paintbrush"></i> Order Your Sketch</a>
+        <div class="hero-buttons">
+            <a href="#order" class="btn"><i class="fa-solid fa-paintbrush"></i> Order Your Sketch</a>
+            <a href="https://instagram.com/devartsx" target="_blank" class="btn btn-insta"><i class="fa-brands fa-instagram"></i> Follow me on Instagram</a>
+        </div>
     </section>
 
     <!-- How It Works Section -->
@@ -734,7 +791,7 @@
         </div>
     </div>
 
-    <!-- Instagram Follow Section -->
+    <!-- Instagram Follow Banner Section -->
     <div class="insta-banner">
         <div class="insta-box">
             <h3>Connect with us on Instagram</h3>
@@ -806,7 +863,12 @@
         </div>
     </section>
 
-    <!-- Floating Order Button -->
+    <!-- Floating Instagram Button (Left Side) -->
+    <a href="https://instagram.com/devartsx" target="_blank" class="floating-insta-btn">
+        <i class="fa-brands fa-instagram" style="font-size: 1.4rem;"></i> Instagram
+    </a>
+
+    <!-- Floating Order Button (Right Side) -->
     <a href="#order" class="floating-order-btn">
         <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Order Now
     </a>
