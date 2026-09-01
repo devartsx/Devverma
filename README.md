@@ -507,13 +507,13 @@
         <div class="portfolio-item" data-title="Shiv Parvati Sketch">
             <img src="shiva-parvati.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600'" alt="Shiv Parvati Sketch">
         </div>
-        <div class="portfolio-item" data-title="Anime Art (Giyu Tomioka)">
+        <div class="portfolio-item" data-title="Anime Art">
             <img src="anime-giyu.jpg" onerror="this.src='https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600'" alt="Anime Art Giyu">
         </div>
         <div class="portfolio-item" data-title="Lord Ganesha Portrait">
             <img src="ganesha.jpg" onerror="this.src='https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600'" alt="Lord Ganesha Artwork">
         </div>
-        <div class="portfolio-item" data-title="Hyper-Realistic Eye Study">
+        <div class="portfolio-item" data-title="Hyper-Realistic Eye">
             <img src="eye-detail.jpg" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?w=600'" alt="Eye Sketch Artwork">
         </div>
     </div>
