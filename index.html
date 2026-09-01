@@ -10,12 +10,12 @@
 
     <style>
         :root {
-            --bg-color: #fcfcfd;
-            --text-color: #1a1a1a;
+            --bg-color: #0a0a0a;
+            --text-color: #f0f0f0;
             --primary-yellow: #ffd700;
             --gold-glow: rgba(255, 215, 0, 0.4);
-            --card-bg: rgba(255, 255, 255, 0.65);
-            --shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            --card-bg: rgba(30, 30, 30, 0.65);
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
         * {
@@ -101,10 +101,10 @@
             justify-content: space-between;
             align-items: center;
             padding: 16px 8%;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(20, 20, 20, 0.75);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -134,6 +134,7 @@
         .logo-container h1 {
             font-size: 22px;
             font-weight: 800;
+            color: var(--text-color);
         }
 
         .shimmer-text {
@@ -176,7 +177,7 @@
         }
 
         nav a:hover::after { width: 100%; }
-        nav a:hover { color: #b8970b; }
+        nav a:hover { color: #ffd700; }
 
         /* Nav Instagram Highlight Link */
         .nav-insta-link {
@@ -218,11 +219,13 @@
             margin-bottom: 20px;
             line-height: 1.2;
             font-weight: 800;
+            color: var(--text-color);
         }
 
         .hero h2 span {
             display: inline-block;
             background: var(--primary-yellow);
+            color: #111;
             padding: 4px 16px;
             border-radius: 12px;
             box-shadow: 0 8px 20px var(--gold-glow);
@@ -236,7 +239,7 @@
 
         .hero p {
             font-size: 1.15rem;
-            color: #555;
+            color: #bbb;
             max-width: 600px;
             margin-bottom: 25px;
         }
@@ -300,6 +303,7 @@
             font-size: 2.4rem;
             margin: 60px 0 30px;
             font-weight: 800;
+            color: var(--text-color);
         }
 
         /* How to Order Steps */
@@ -318,7 +322,7 @@
             padding: 30px 25px;
             text-align: center;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -328,6 +332,7 @@
             width: 60px;
             height: 60px;
             background: var(--primary-yellow);
+            color: #111;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -338,8 +343,8 @@
             box-shadow: 0 5px 15px var(--gold-glow);
         }
 
-        .step-card h4 { font-size: 1.2rem; margin-bottom: 8px; }
-        .step-card p { font-size: 0.9rem; color: #666; }
+        .step-card h4 { font-size: 1.2rem; margin-bottom: 8px; color: var(--text-color); }
+        .step-card p { font-size: 0.9rem; color: #999; }
 
         /* Portfolio Grid */
         .portfolio-grid {
@@ -357,7 +362,7 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -424,7 +429,7 @@
             max-width: 100%;
             text-align: center;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: 8px solid var(--primary-yellow);
             transition: all 0.4s ease;
         }
@@ -434,9 +439,9 @@
             box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
         }
 
-        .price-card h3 { font-size: 1.7rem; margin-bottom: 10px; }
-        .price-card .price { font-size: 2.8rem; color: #b8970b; margin-bottom: 15px; font-weight: 800; }
-        .price-card p { color: #666; margin-bottom: 20px; font-size: 0.95rem; }
+        .price-card h3 { font-size: 1.7rem; margin-bottom: 10px; color: var(--text-color); }
+        .price-card .price { font-size: 2.8rem; color: #ffd700; margin-bottom: 15px; font-weight: 800; }
+        .price-card p { color: #999; margin-bottom: 20px; font-size: 0.95rem; }
 
         /* Testimonials Section */
         .testimonials-container {
@@ -453,13 +458,13 @@
             border-radius: 20px;
             padding: 30px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
         }
 
         .testimonial-card .stars { color: #f59e0b; margin-bottom: 12px; font-size: 0.9rem; }
-        .testimonial-card p { font-style: italic; color: #441; font-size: 0.95rem; margin-bottom: 15px; }
-        .testimonial-card h5 { font-weight: 700; color: #222; }
+        .testimonial-card p { font-style: italic; color: #ccc; font-size: 0.95rem; margin-bottom: 15px; }
+        .testimonial-card h5 { font-weight: 700; color: #fff; }
 
         /* Instagram Banner Section */
         .insta-banner {
@@ -468,19 +473,19 @@
         }
 
         .insta-box {
-            background: linear-gradient(135deg, rgba(255, 225, 230, 0.7), rgba(245, 208, 255, 0.7));
+            background: linear-gradient(135deg, rgba(60, 30, 40, 0.7), rgba(50, 25, 55, 0.7));
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 24px;
             padding: 35px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: var(--shadow);
         }
 
         .insta-box h3 {
             font-size: 1.8rem;
             margin-bottom: 10px;
-            color: #1a1a1a;
+            color: var(--text-color);
         }
 
         .insta-btn {
@@ -519,7 +524,7 @@
             -webkit-backdrop-filter: blur(12px);
             border-radius: 14px;
             margin-bottom: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: var(--shadow);
             overflow: hidden;
             transition: 0.3s;
@@ -532,13 +537,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: var(--text-color);
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             padding: 0 20px;
-            color: #555;
+            color: #aaa;
             font-size: 0.95rem;
             transition: max-height 0.3s ease, padding 0.3s ease;
         }
@@ -567,28 +573,29 @@
             width: 100%;
             max-width: 580px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: 6px solid var(--primary-yellow);
         }
 
-        .order-box h3 { text-align: center; font-size: 2rem; margin-bottom: 25px; }
+        .order-box h3 { text-align: center; font-size: 2rem; margin-bottom: 25px; color: var(--text-color); }
 
         .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #333; font-size: 0.95rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #ddd; font-size: 0.95rem; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 13px 15px;
-            border: 2px solid rgba(226, 226, 226, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
             font-size: 0.95rem;
             outline: none;
-            background: rgba(250, 250, 250, 0.8);
+            background: rgba(20, 20, 20, 0.8);
+            color: var(--text-color);
             transition: 0.3s;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--primary-yellow);
-            background: #fff;
+            background: #1a1a1a;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
         }
 
@@ -650,7 +657,7 @@
 
         /* Footer */
         footer {
-            background: #111;
+            background: #000;
             color: #fff;
             text-align: center;
             padding: 35px 20px;
@@ -795,7 +802,7 @@
     <div class="insta-banner">
         <div class="insta-box">
             <h3>Connect with us on Instagram</h3>
-            <p style="color: #555; font-size: 0.95rem; margin-bottom: 5px;">See latest sketch reels, behind-the-scenes & daily artwork updates.</p>
+            <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 5px;">See latest sketch reels, behind-the-scenes & daily artwork updates.</p>
             <a href="https://instagram.com/devartsx" target="_blank" class="insta-btn">
                 <i class="fa-brands fa-instagram" style="font-size: 1.3rem;"></i> Follow me on Instagram
             </a>
