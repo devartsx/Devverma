@@ -508,7 +508,7 @@
             <img src="shiva-parvati.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600'" alt="Shiv Parvati Sketch">
         </div>
         <div class="portfolio-item" data-title="Anime Art">
-            <img src="anime-giyu.jpg" onerror="this.src='https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600'" alt="Anime Art Giyu">
+            <img src="file_000000002b608211b7d1d757faceb747.png" onerror="this.src='https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600'" alt="Anime Art Giyu">
         </div>
         <div class="portfolio-item" data-title="Lord Ganesha Portrait">
             <img src="ganesha.jpg" onerror="this.src='https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600'" alt="Lord Ganesha Artwork">
