@@ -48,24 +48,31 @@
         }
 
         .container {
-            max-width: 500px;
+            max-width: 520px;
             width: 100%;
             background: rgba(17, 24, 39, 0.7);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
             padding: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             text-align: center;
-            /* Reduced 3D Tilt container setup */
-            perspective: 1200px; 
-            transform-style: preserve-3d;
         }
 
-        /* Subtle 3D Tilt Element */
-        .tilt-element {
-            transition: transform 0.2s ease-out;
-            transform-style: preserve-3d;
+        /* Logo & Header Section */
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 10px auto;
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
         }
 
         header h1 {
@@ -80,12 +87,76 @@
         header p {
             color: #9ca3af;
             font-size: 0.9rem;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio Showcase Section */
+        .portfolio-section {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            color: #d1d5db;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .art-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .art-card:hover {
+            border-color: rgba(255, 0, 127, 0.5);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .art-thumb {
+            width: 100%;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #9ca3af;
+            margin-bottom: 6px;
+        }
+
+        .art-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .art-tag {
+            font-size: 0.65rem;
+            color: #ff7eb3;
         }
 
         .preview-box {
             width: 100%;
-            height: 220px;
+            height: 200px;
             border-radius: 16px;
             overflow: hidden;
             border: 2px dashed rgba(255, 255, 255, 0.2);
@@ -93,7 +164,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             position: relative;
         }
 
@@ -106,7 +177,7 @@
 
         .preview-box .placeholder-text {
             color: #9ca3af;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .form-group {
@@ -146,7 +217,7 @@
 
         textarea {
             resize: none;
-            height: 80px;
+            height: 75px;
         }
 
         .btn-order {
@@ -161,7 +232,7 @@
             cursor: pointer;
             transition: opacity 0.3s, transform 0.2s;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .btn-order:hover {
@@ -182,11 +253,37 @@
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
 
-    <div class="container tilt-element" id="mainContainer">
+    <div class="container" id="mainContainer">
         <header>
+            <div class="brand-logo">DX</div>
             <h1>Devartsx</h1>
             <p>Custom Anime Art & Orders</p>
         </header>
+
+        <!-- Portfolio Showcase Section -->
+        <div class="portfolio-section">
+            <div class="section-title">
+                <span>Featured Artworks</span>
+                <span style="font-size: 0.7rem; color: #9ca3af;">Portfolio Gallery</span>
+            </div>
+            <div class="art-grid">
+                <div class="art-card">
+                    <div class="art-thumb">Art 1</div>
+                    <div class="art-name">Cyber Samurai</div>
+                    <div class="art-tag">Concept</div>
+                </div>
+                <div class="art-card">
+                    <div class="art-thumb">Art 2</div>
+                    <div class="art-name">Neon Demon</div>
+                    <div class="art-tag">Illustration</div>
+                </div>
+                <div class="art-card">
+                    <div class="art-thumb">Art 3</div>
+                    <div class="art-name">Chibi Hero</div>
+                    <div class="art-tag">Portrait</div>
+                </div>
+            </div>
+        </div>
 
         <div class="preview-box">
             <span class="placeholder-text" id="placeholderText">Image Preview Will Appear Here</span>
@@ -216,29 +313,10 @@
     </div>
 
     <script>
-        // Reduced 3D tilt effect logic (gentle movement)
-        const container = document.getElementById('mainContainer');
-
-        document.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 45; // Higher divisor = less tilt
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
-            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-
-        document.addEventListener('mouseleave', () => {
-            container.style.transform = `rotateY(0deg) rotateX(0deg)`;
-            container.style.transition = 'transform 0.5s ease';
-        });
-
-        document.addEventListener('mouseenter', () => {
-            container.style.transition = 'none';
-        });
-
         // Image Preview Handler
         const imageInput = document.getElementById('artworkImage');
         const imagePreview = document.getElementById('imagePreview');
         const placeholderText = document.getElementById('placeholderText');
-        let uploadedImageUrl = "";
 
         imageInput.addEventListener('change', function(event) {
             const file = event.target.files[0];
@@ -253,7 +331,7 @@
             }
         });
 
-        // Direct WhatsApp Form Submission Handler (Using ImgBB API for image upload)
+        // Form Submission & WhatsApp Handler
         const orderForm = document.getElementById('orderForm');
         const loadingText = document.getElementById('loadingText');
 
@@ -273,14 +351,15 @@
                 formData.append("image", fileField);
 
                 try {
-                    // Free ImgBB API key placeholder (you can replace with your own if needed)
                     const response = await fetch('https://api.imgbb.com/1/upload?key=6d207e02198a847aa98d0a2a901485a5', {
                         method: 'POST',
                         body: formData
                     });
                     const data = await response.json();
-                    if (data.success) {
+                    if (data && data.success) {
                         imageUrlText = data.data.url;
+                    } else {
+                        imageUrlText = "Image upload failed via API";
                     }
                 } catch (error) {
                     console.error("Image upload failed:", error);
@@ -290,8 +369,8 @@
 
             loadingText.style.display = 'none';
 
-            // Format WhatsApp Message
-            const whatsappNumber = "919876543210"; // Replace with your WhatsApp number (with country code)
+            // WhatsApp Number set to 7827417956
+            const whatsappNumber = "917827417956"; 
             const message = `*New Order Request - Devartsx*\n\n*Name:* ${name}\n*Instructions:* ${instructions || 'None'}\n*Reference Image:* ${imageUrlText}`;
             
             const encodedMessage = encodeURIComponent(message);
