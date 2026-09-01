@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devartsx | Custom Handmade Artwork</title>
-    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
@@ -30,6 +30,12 @@
             color: var(--text-color);
             overflow-x: hidden;
             position: relative;
+            animation: fadeInBody 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInBody {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Background Animated Orbs */
@@ -49,29 +55,29 @@
             border-radius: 50%;
             filter: blur(80px);
             opacity: 0.4;
-            animation: orbFloat 10s infinite alternate ease-in-out;
+            animation: orbFloat 12s infinite alternate ease-in-out;
         }
 
         .orb-1 {
-            width: 320px;
-            height: 320px;
+            width: 350px;
+            height: 350px;
             background: #ffe566;
             top: -40px;
             left: -40px;
         }
 
         .orb-2 {
-            width: 380px;
-            height: 380px;
+            width: 400px;
+            height: 400px;
             background: #fff099;
             bottom: -60px;
             right: -40px;
-            animation-delay: -5s;
+            animation-delay: -6s;
         }
 
         @keyframes orbFloat {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, 50px) scale(1.1); }
+            100% { transform: translate(50px, 60px) scale(1.15); }
         }
 
         /* Header */
@@ -80,13 +86,19 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 8%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            animation: slideDownHeader 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideDownHeader {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .logo-container {
@@ -101,11 +113,11 @@
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 6px 15px var(--gold-glow);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .logo-container img:hover {
-            transform: scale(1.08);
+            transform: scale(1.12) rotate(3deg);
         }
 
         .logo-container h1 {
@@ -148,7 +160,7 @@
             left: 0;
             background-color: var(--primary-yellow);
             border-radius: 2px;
-            transition: width 0.3s ease;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav a:hover::after { width: 100%; }
@@ -163,6 +175,13 @@
             justify-content: center;
             text-align: center;
             padding: 40px 20px;
+            animation: fadeZoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeZoomIn {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .hero h2 {
@@ -178,6 +197,12 @@
             padding: 4px 16px;
             border-radius: 12px;
             box-shadow: 0 8px 20px var(--gold-glow);
+            animation: badgePulse 3s infinite ease-in-out;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 20px var(--gold-glow); }
+            50% { transform: scale(1.03); box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6); }
         }
 
         .hero p {
@@ -197,16 +222,33 @@
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 10px 25px var(--gold-glow);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::after {
+            left: 100%;
         }
 
         .btn:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.7);
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 18px 40px rgba(255, 215, 0, 0.75);
         }
 
         /* Section Titles */
@@ -215,6 +257,7 @@
             font-size: 2.6rem;
             margin: 70px 0 35px;
             font-weight: 800;
+            position: relative;
         }
 
         /* Portfolio Grid */
@@ -234,23 +277,23 @@
             border: 2px solid #f0e68c;
             position: relative;
             cursor: pointer;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
         }
 
         .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.4);
         }
 
         .portfolio-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .portfolio-item:hover img {
-            transform: scale(1.08);
+            transform: scale(1.12);
         }
 
         .portfolio-item::after {
@@ -259,14 +302,14 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 18px 15px;
-            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            padding: 22px 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             color: #fff;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.05rem;
             text-align: center;
             transform: translateY(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .portfolio-item:hover::after {
@@ -293,12 +336,12 @@
             border-top: 8px solid var(--primary-yellow);
             border-left: 1px solid rgba(255,215,0,0.3);
             border-right: 1px solid rgba(255,215,0,0.3);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
 
         .price-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.35);
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.4);
         }
 
         .price-card h3 {
@@ -312,6 +355,11 @@
             color: #b8970b;
             margin-bottom: 20px;
             font-weight: 800;
+            transition: transform 0.3s ease;
+        }
+
+        .price-card:hover .price {
+            transform: scale(1.08);
         }
 
         .price-card p {
@@ -335,11 +383,12 @@
             max-width: 580px;
             box-shadow: var(--shadow);
             border: 2px solid #ffe875;
-            transition: box-shadow 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .order-box:hover {
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
         }
 
         .order-box h3 {
@@ -366,14 +415,15 @@
             border-radius: 12px;
             font-size: 1rem;
             outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: #fafafa;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--primary-yellow);
             background: #fff;
-            box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            transform: scale(1.01);
         }
 
         .order-box .btn {
@@ -433,7 +483,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo-container">
-            <img src="logo.png" onerror="this.src='[https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=100](https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=100)'" alt="Devartsx Logo">
+            <img src="logo.png" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=100'" alt="Devartsx Logo">
             <h1>Devarts<span class="shimmer-text">x</span></h1>
         </div>
         <nav>
@@ -455,16 +505,16 @@
     <h2 class="section-title" id="portfolio">My <span class="shimmer-text">Portfolio</span></h2>
     <div class="portfolio-grid">
         <div class="portfolio-item" data-title="Shiv Parvati Sketch">
-            <img src="shiva-parvati.jpg" onerror="this.src='[https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600](https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600)'" alt="Shiv Parvati Sketch">
+            <img src="shiva-parvati.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600'" alt="Shiv Parvati Sketch">
         </div>
         <div class="portfolio-item" data-title="Anime Art (Giyu Tomioka)">
-            <img src="anime-giyu.jpg" onerror="this.src='[https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600](https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600)'" alt="Anime Art Giyu">
+            <img src="anime-giyu.jpg" onerror="this.src='https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600'" alt="Anime Art Giyu">
         </div>
         <div class="portfolio-item" data-title="Lord Ganesha Portrait">
-            <img src="ganesha.jpg" onerror="this.src='[https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600](https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600)'" alt="Lord Ganesha Artwork">
+            <img src="ganesha.jpg" onerror="this.src='https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600'" alt="Lord Ganesha Artwork">
         </div>
         <div class="portfolio-item" data-title="Hyper-Realistic Eye Study">
-            <img src="eye-detail.jpg" onerror="this.src='[https://images.unsplash.com/photo-1544717305-2782549b5136?w=600](https://images.unsplash.com/photo-1544717305-2782549b5136?w=600)'" alt="Eye Sketch Artwork">
+            <img src="eye-detail.jpg" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?w=600'" alt="Eye Sketch Artwork">
         </div>
     </div>
 
@@ -537,7 +587,7 @@
                             `*Instructions:* ${notes}\n\n` +
                             `*(Please attach reference photo here)*`;
 
-            window.location.href = `[https://api.whatsapp.com/send?phone=$](https://api.whatsapp.com/send?phone=$){whatsappNumber}&text=${encodeURIComponent(message)}`;
+            window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
         }
     </script>
 </body>
