@@ -31,6 +31,7 @@
             overflow-x: hidden;
             position: relative;
             animation: fadeInBody 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            perspective: 1200px;
         }
 
         @keyframes fadeInBody {
@@ -76,8 +77,8 @@
         }
 
         @keyframes orbFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 60px) scale(1.15); }
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            100% { transform: translate(50px, 60px) scale(1.15) rotate(15deg); }
         }
 
         /* Header */
@@ -94,6 +95,7 @@
             z-index: 1000;
             border-bottom: 2px solid rgba(255, 215, 0, 0.3);
             animation: slideDownHeader 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform-style: preserve-3d;
         }
 
         @keyframes slideDownHeader {
@@ -105,6 +107,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            transform-style: preserve-3d;
         }
 
         .logo-container img {
@@ -113,11 +116,11 @@
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 6px 15px var(--gold-glow);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .logo-container img:hover {
-            transform: scale(1.12) rotate(3deg);
+            transform: scale(1.15) rotateY(180deg);
         }
 
         .logo-container h1 {
@@ -166,7 +169,7 @@
         nav a:hover::after { width: 100%; }
         nav a:hover { color: #b8970b; }
 
-        /* Hero Section */
+        /* Hero Section with 3D Depth */
         .hero {
             min-height: 80vh;
             display: flex;
@@ -177,11 +180,13 @@
             padding: 40px 20px;
             animation: fadeZoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
             opacity: 0;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         @keyframes fadeZoomIn {
-            from { opacity: 0; transform: scale(0.95) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+            from { opacity: 0; transform: scale(0.95) translateY(20px) rotateX(10deg); }
+            to { opacity: 1; transform: scale(1) translateY(0) rotateX(0deg); }
         }
 
         .hero h2 {
@@ -189,6 +194,7 @@
             margin-bottom: 20px;
             line-height: 1.2;
             font-weight: 800;
+            transform: translateZ(30px);
         }
 
         .hero h2 span {
@@ -198,11 +204,12 @@
             border-radius: 12px;
             box-shadow: 0 8px 20px var(--gold-glow);
             animation: badgePulse 3s infinite ease-in-out;
+            transform: translateZ(40px);
         }
 
         @keyframes badgePulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 8px 20px var(--gold-glow); }
-            50% { transform: scale(1.03); box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6); }
+            0%, 100% { transform: translateZ(40px) scale(1); box-shadow: 0 8px 20px var(--gold-glow); }
+            50% { transform: translateZ(55px) scale(1.05) rotateX(-5deg); box-shadow: 0 15px 35px rgba(255, 215, 0, 0.7); }
         }
 
         .hero p {
@@ -210,6 +217,7 @@
             color: #555;
             max-width: 600px;
             margin-bottom: 30px;
+            transform: translateZ(20px);
         }
 
         .btn {
@@ -229,6 +237,8 @@
             gap: 10px;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            transform: translateZ(30px);
         }
 
         .btn::after {
@@ -247,8 +257,8 @@
         }
 
         .btn:hover {
-            transform: translateY(-5px) scale(1.04);
-            box-shadow: 0 18px 40px rgba(255, 215, 0, 0.75);
+            transform: translateZ(50px) translateY(-5px) scale(1.05) rotateX(5deg);
+            box-shadow: 0 20px 45px rgba(255, 215, 0, 0.8);
         }
 
         /* Section Titles */
@@ -258,14 +268,16 @@
             margin: 70px 0 35px;
             font-weight: 800;
             position: relative;
+            transform-style: preserve-3d;
         }
 
-        /* Portfolio Grid */
+        /* Portfolio Grid with 3D Tilt Cards */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             padding: 0 8% 60px;
+            perspective: 1000px;
         }
 
         .portfolio-item {
@@ -277,12 +289,13 @@
             border: 2px solid #f0e68c;
             position: relative;
             cursor: pointer;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+            transition: transform 0.2s ease-out, box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .portfolio-item:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.5);
         }
 
         .portfolio-item img {
@@ -290,10 +303,11 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateZ(0);
         }
 
         .portfolio-item:hover img {
-            transform: scale(1.12);
+            transform: scale(1.15) translateZ(30px);
         }
 
         .portfolio-item::after {
@@ -308,21 +322,22 @@
             font-weight: 600;
             font-size: 1.05rem;
             text-align: center;
-            transform: translateY(100%);
+            transform: translateY(100%) translateZ(40px);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .portfolio-item:hover::after {
-            transform: translateY(0);
+            transform: translateY(0) translateZ(40px);
         }
 
-        /* Pricing Cards */
+        /* Pricing Cards 3D Effect */
         .pricing-container {
             display: flex;
             justify-content: center;
             gap: 40px;
             padding: 0 8% 40px;
             flex-wrap: wrap;
+            perspective: 1000px;
         }
 
         .price-card {
@@ -336,18 +351,20 @@
             border-top: 8px solid var(--primary-yellow);
             border-left: 1px solid rgba(255,215,0,0.3);
             border-right: 1px solid rgba(255,215,0,0.3);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+            transition: transform 0.2s ease-out, box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .price-card:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 35px 70px rgba(255, 215, 0, 0.45);
         }
 
         .price-card h3 {
             font-size: 1.8rem;
             margin-bottom: 12px;
             color: #222;
+            transform: translateZ(25px);
         }
 
         .price-card .price {
@@ -356,23 +373,30 @@
             margin-bottom: 20px;
             font-weight: 800;
             transition: transform 0.3s ease;
+            transform: translateZ(35px);
         }
 
         .price-card:hover .price {
-            transform: scale(1.08);
+            transform: translateZ(45px) scale(1.1);
         }
 
         .price-card p {
             color: #666;
             margin-bottom: 25px;
             font-size: 1rem;
+            transform: translateZ(20px);
         }
 
-        /* Order Form Box */
+        .price-card .btn {
+            transform: translateZ(30px);
+        }
+
+        /* Order Form Box 3D Effect */
         .order-section {
             padding: 30px 8% 60px;
             display: flex;
             justify-content: center;
+            perspective: 1000px;
         }
 
         .order-box {
@@ -383,22 +407,25 @@
             max-width: 580px;
             box-shadow: var(--shadow);
             border: 2px solid #ffe875;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.2s ease-out, box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .order-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.35);
         }
 
         .order-box h3 {
             text-align: center;
             font-size: 2.1rem;
             margin-bottom: 25px;
+            transform: translateZ(30px);
         }
 
         .form-group {
             margin-bottom: 18px;
+            transform: translateZ(20px);
         }
 
         .form-group label {
@@ -419,17 +446,51 @@
             background: #fafafa;
         }
 
+        .form-group input[type="file"] {
+            padding: 10px;
+            background: #fff;
+            cursor: pointer;
+        }
+
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--primary-yellow);
             background: #fff;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-            transform: scale(1.01);
+            transform: scale(1.01) translateZ(10px);
+        }
+
+        .image-preview-box {
+            display: none;
+            margin-top: 12px;
+            text-align: center;
+            background: #fff;
+            padding: 12px;
+            border-radius: 15px;
+            border: 2px dashed #ffd700;
+            transform: translateZ(25px);
+        }
+
+        .image-preview-box img {
+            max-height: 140px;
+            max-width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .image-preview-box p {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 6px;
+            word-break: break-all;
+            font-weight: 600;
         }
 
         .order-box .btn {
             width: 100%;
             margin-top: 10px;
             justify-content: center;
+            transform: translateZ(35px);
         }
 
         /* Footer */
@@ -504,16 +565,16 @@
     <!-- Portfolio Grid -->
     <h2 class="section-title" id="portfolio">My <span class="shimmer-text">Portfolio</span></h2>
     <div class="portfolio-grid">
-        <div class="portfolio-item" data-title="Shiv Parvati Sketch">
+        <div class="portfolio-item tilt-card" data-title="Shiv Parvati Sketch">
             <img src="SAVE_20260811_152926.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600'" alt="Shiv Parvati Sketch">
         </div>
-        <div class="portfolio-item" data-title="Anime Art">
+        <div class="portfolio-item tilt-card" data-title="Anime Art">
             <img src="file_000000002b608211b7d1d757faceb747.png" onerror="this.src='https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600'" alt="Anime Art Giyu">
         </div>
-        <div class="portfolio-item" data-title="Lord Ganesha Portrait">
+        <div class="portfolio-item tilt-card" data-title="Lord Ganesha Portrait">
             <img src="file_000000006c408207b271675b9f635fda.png" onerror="this.src='https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600'" alt="Lord Ganesha Artwork">
         </div>
-        <div class="portfolio-item" data-title="Hyper-Realistic Eye">
+        <div class="portfolio-item tilt-card" data-title="Hyper-Realistic Eye">
             <img src="eye-detail.jpg" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?w=600'" alt="Eye Sketch Artwork">
         </div>
     </div>
@@ -521,13 +582,13 @@
     <!-- Pricing Section -->
     <h2 class="section-title" id="pricing">Sketch <span class="shimmer-text">Pricing</span></h2>
     <div class="pricing-container">
-        <div class="price-card">
+        <div class="price-card tilt-card">
             <h3>A4 Size Sketch</h3>
             <div class="price">₹599</div>
             <p>Perfect choice for single face portraits & closeups with graphite shading.</p>
             <a href="#order" class="btn">Book A4 Size</a>
         </div>
-        <div class="price-card">
+        <div class="price-card tilt-card">
             <h3>A3 Size Sketch</h3>
             <div class="price">₹999</div>
             <p>Best for detailed couple portraits, religious art & deep charcoal work.</p>
@@ -537,7 +598,7 @@
 
     <!-- Order Form Box Section -->
     <section class="order-section" id="order">
-        <div class="order-box">
+        <div class="order-box tilt-card">
             <h3>Order <span class="shimmer-text">Your Sketch</span></h3>
             <form onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
@@ -556,39 +617,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="notes">Special Instructions</label>
-                    <textarea id="notes" rows="4" placeholder="Any specific requirements..."></textarea>
-                </div>
-                <button type="submit" class="btn"><i class="fa-brands fa-whatsapp" style="font-size:1.3rem;"></i> Order via WhatsApp</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <h3>Devarts<span class="shimmer-text">x</span> </h3>
-        <p>&copy; 2026 Devartsx. All Rights Reserved.</p>
-    </footer>
-
-    <!-- WhatsApp Integration Script -->
-    <script>
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const size = document.getElementById('size').value;
-            const notes = document.getElementById('notes').value || 'None';
-
-            const whatsappNumber = "917827417956";
-            const message = `*NEW SKETCH ORDER - DEVARTSX*\n\n` +
-                            `*Name:* ${name}\n` +
-                            `*Phone:* ${phone}\n` +
-                            `*Selected Size:* ${size}\n` +
-                            `*Instructions:* ${notes}\n\n` +
-                            `*(Please attach reference photo here)*`;
-
-            window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
-        }
-    </script>
-</body>
-</html>
+                    <label for="imageUpload">Upload Reference Image</label>
+                    <input type="file" id="imageUpload" accept="image/*" required onchange="handleImagePreview(event)">
+                    <div id="previewBox" class="image-preview-box">
+                        <img id="previewImg"
