@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Responsive Website</title>
-    
+    <title>Devartsx | Custom Handmade Artwork</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
@@ -439,85 +439,106 @@
 
     <header>
         <div class="logo-container">
-            <img src="https://via.placeholder.com/50" alt="Logo">
-            <h1>Brand <span>Logo</span></h1>
+            <img src="logo.png" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=100'" alt="Devartsx Logo">
+            <h1>Devarts<span>x</span></h1>
         </div>
         <nav>
             <a href="#hero">Home</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#order">Order</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#order">Order Sketch</a>
         </nav>
     </header>
 
     <section class="hero" id="hero">
-        <h2>Build <span>3D Experience</span> Websites</h2>
-        <p>Create stunning web experiences with smooth responsive animations and modern CSS layouts.</p>
-        <a href="#order" class="btn">Get Started</a>
+        <h2>Handmade Realistic <span>Sketches</span></h2>
+        <p>Get custom graphite & charcoal portraits created with high precision. Perfect gift for your loved ones.</p>
+        <a href="#order" class="btn">Order Your Sketch</a>
     </section>
 
-    <h2 class="section-title" id="pricing">Our <span>Pricing</span></h2>
-    <div class="pricing-container">
-        <div class="price-card">
-            <h3>Basic</h3>
-            <div class="price">$29</div>
-            <p>Perfect for starter projects and simple websites.</p>
-            <a href="#order" class="btn">Choose Plan</a>
+    <h2 class="section-title" id="portfolio">My <span>Portfolio</span></h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-item" data-title="Shiv Parvati Sketch">
+            <img src="shiva-parvati.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600'" alt="Shiv Parvati Sketch">
         </div>
-        <div class="price-card">
-            <h3>Pro</h3>
-            <div class="price">$79</div>
-            <p>Best for businesses looking for full responsive 3D design.</p>
-            <a href="#order" class="btn">Choose Plan</a>
+        <div class="portfolio-item" data-title="Anime Art (Giyu Tomioka)">
+            <img src="anime-giyu.jpg" onerror="this.src='https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600'" alt="Anime Art Giyu">
+        </div>
+        <div class="portfolio-item" data-title="Lord Ganesha Portrait">
+            <img src="ganesha.jpg" onerror="this.src='https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600'" alt="Lord Ganesha Artwork">
+        </div>
+        <div class="portfolio-item" data-title="Hyper-Realistic Eye Study">
+            <img src="eye-detail.jpg" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?w=600'" alt="Eye Sketch Artwork">
         </div>
     </div>
 
-    <h2 class="section-title" id="order">Place <span>Order</span></h2>
-    <section class="order-section">
+    <h2 class="section-title" id="pricing">Sketch <span>Pricing</span></h2>
+    <div class="pricing-container">
+        <div class="price-card">
+            <h3>A4 Size Sketch</h3>
+            <div class="price">₹599</div>
+            <p>Perfect choice for single face portraits & closeups with graphite shading.</p>
+            <a href="#order" class="btn">Book A4 Size</a>
+        </div>
+        <div class="price-card">
+            <h3>A3 Size Sketch</h3>
+            <div class="price">₹999</div>
+            <p>Best for detailed couple portraits, religious art & deep charcoal work.</p>
+            <a href="#order" class="btn">Book A3 Size</a>
+        </div>
+    </div>
+
+    <section class="order-section" id="order">
         <div class="order-box">
-            <h3>Order <span>Now</span></h3>
-            <form>
+            <h3>Order <span>Your Sketch</span></h3>
+            <form onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Enter your name" required>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
                 </div>
                 <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="Enter your email" required>
+                    <label for="phone">WhatsApp Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="Enter mobile number">
                 </div>
                 <div class="form-group">
-                    <label>Select Plan</label>
-                    <select>
-                        <option>Basic Plan ($29)</option>
-                        <option>Pro Plan ($79)</option>
+                    <label for="size">Select Artwork Size</label>
+                    <select id="size" required>
+                        <option value="A4 Size Sketch (₹599)">A4 Size Sketch - ₹599</option>
+                        <option value="A3 Size Sketch (₹999)">A3 Size Sketch - ₹999</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Message</label>
-                    <textarea rows="4" placeholder="Your requirements..."></textarea>
+                    <label for="notes">Special Instructions</label>
+                    <textarea id="notes" rows="4" placeholder="Any specific requirements..."></textarea>
                 </div>
-                <button type="submit" class="btn">Submit Order</button>
+                <button type="submit" class="btn"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
             </form>
         </div>
     </section>
 
-    <h2 class="section-title" id="portfolio">Our <span>Portfolio</span></h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-item" data-title="Project One">
-            <img src="https://via.placeholder.com/400x350" alt="Portfolio 1">
-        </div>
-        <div class="portfolio-item" data-title="Project Two">
-            <img src="https://via.placeholder.com/400x350" alt="Portfolio 2">
-        </div>
-        <div class="portfolio-item" data-title="Project Three">
-            <img src="https://via.placeholder.com/400x350" alt="Portfolio 3">
-        </div>
-    </div>
-
     <footer>
-        <h3>Brand <span>Logo</span></h3>
-        <p>&copy; 2026 All Rights Reserved.</p>
+        <h3>Devarts<span>x</span> Studio</h3>
+        <p>&copy; 2026 Devartsx. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const size = document.getElementById('size').value;
+            const notes = document.getElementById('notes').value || 'None';
+
+            const whatsappNumber = "917827417956";
+            const message = `*NEW SKETCH ORDER - DEVARTSX*\n\n` +
+                            `*Name:* ${name}\n` +
+                            `*Phone:* ${phone}\n` +
+                            `*Selected Size:* ${size}\n` +
+                            `*Instructions:* ${notes}\n\n` +
+                            `*(Please attach reference photo here)*`;
+
+            window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+        }
+    </script>
 </body>
 </html>
