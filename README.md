@@ -110,17 +110,20 @@
             transform-style: preserve-3d;
         }
 
+        /* Circular Logo Styling */
         .logo-container img {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px var(--gold-glow);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 50%;
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 0 15px var(--gold-glow);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
         }
 
         .logo-container img:hover {
             transform: scale(1.15) rotateY(180deg);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
         }
 
         .logo-container h1 {
@@ -628,8 +631,4 @@
             <form onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="phone">WhatsApp Phone Number</label>
-      
+                    <input type="text" id="name" required placeholde
