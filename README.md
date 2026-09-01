@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devartsx - Custom Handmade Sketches</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -39,7 +40,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Background Animated Orbs */
+        /* Ambient Glowing Background */
         .ambient-bg {
             position: fixed;
             top: 0;
@@ -110,7 +111,7 @@
             transform-style: preserve-3d;
         }
 
-        /* Circular Logo Styling */
+        /* Circular Logo Design */
         .logo-container img {
             width: 52px;
             height: 52px;
@@ -172,7 +173,7 @@
         nav a:hover::after { width: 100%; }
         nav a:hover { color: #b8970b; }
 
-        /* Hero Section with 3D Depth */
+        /* Hero Section */
         .hero {
             min-height: 80vh;
             display: flex;
@@ -274,7 +275,7 @@
             transform-style: preserve-3d;
         }
 
-        /* Portfolio Grid with 3D Tilt Cards */
+        /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -333,7 +334,7 @@
             transform: translateY(0) translateZ(40px);
         }
 
-        /* Pricing Cards 3D Effect */
+        /* Pricing Cards */
         .pricing-container {
             display: flex;
             justify-content: center;
@@ -394,7 +395,7 @@
             transform: translateZ(30px);
         }
 
-        /* Order Form Box 3D Effect */
+        /* Order Form Box */
         .order-section {
             padding: 30px 8% 60px;
             display: flex;
@@ -563,7 +564,7 @@
 </head>
 <body>
 
-    <!-- Ambient Glowing Background -->
+    <!-- Glowing Background Orbs -->
     <div class="ambient-bg">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
@@ -624,11 +625,11 @@
         </div>
     </div>
 
-    <!-- Order Form Box Section -->
+    <!-- Order Form Section -->
     <section class="order-section" id="order">
         <div class="order-box tilt-card">
             <h3>Order <span class="shimmer-text">Your Sketch</span></h3>
             <form onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" required placeholde
+                    <input type="text" id="name" required placeholder="E
