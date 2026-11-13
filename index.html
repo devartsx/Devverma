@@ -105,6 +105,7 @@
             transition: transform 0.5s var(--ease-spring);
         }
         .logo-container:hover .mark { transform: scale(1.1) rotate(8deg); }
+        img.mark { object-fit: cover; display: block; }
         .logo-container h1 { font-size: 21px; font-weight: 800; letter-spacing: -0.2px; }
 
         .shimmer-text {
@@ -365,7 +366,7 @@
     <div class="header-wrap">
         <header class="lg">
             <a class="logo-container" href="#top" style="text-decoration:none; color:inherit;">
-                <div class="mark">D</div>
+                <img class="mark" src="logo.png" alt="Devartsx logo">
                 <h1 class="shimmer-text">Devartsx</h1>
             </a>
             <nav>
@@ -447,7 +448,7 @@
                     <li>Hand-drawn from your photo</li>
                     <li>Packed in protective sleeve</li>
                 </ul>
-                <a class="btn" href="https://wa.me/920000000000?text=Hi%20Devartsx,%20I%20want%20an%20A4%20portrait" target="_blank" rel="noopener">Order on WhatsApp</a>
+                <a class="btn" href="https://wa.me/917827417956?text=Hi%20Devartsx,%20I%20want%20an%20A4%20portrait" target="_blank" rel="noopener">Order on WhatsApp</a>
             </div>
             <div class="price-card lg reveal">
                 <div class="bar"></div>
@@ -458,7 +459,7 @@
                     <li>Hand-drawn from your photo</li>
                     <li>Packed in rigid board</li>
                 </ul>
-                <a class="btn" href="https://wa.me/920000000000?text=Hi%20Devartsx,%20I%20want%20an%20A3%20portrait" target="_blank" rel="noopener">Order on WhatsApp</a>
+                <a class="btn" href="https://wa.me/917827417956?text=Hi%20Devartsx,%20I%20want%20an%20A3%20portrait" target="_blank" rel="noopener">Order on WhatsApp</a>
             </div>
         </section>
 
@@ -508,16 +509,16 @@
         <section class="hero" style="min-height: auto; padding: 10px 20px 20px;">
             <p class="reveal">Koi sawal ho to seedha message karein.</p>
             <div class="hero-buttons reveal">
-                <a class="btn btn-insta" href="https://www.instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
-                <a class="btn btn-ghost" href="https://wa.me/920000000000" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="btn btn-insta" href="https://www.instagram.com/devartsx" target="_blank" rel="noopener">Instagram</a>
+                <a class="btn btn-ghost" href="https://wa.me/917827417956" target="_blank" rel="noopener">WhatsApp</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="socials">
-            <a href="https://www.instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://wa.me/920000000000" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://www.instagram.com/devartsx" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/917827417956" target="_blank" rel="noopener">WhatsApp</a>
         </div>
         <p>© 2026 Devartsx. Handmade with graphite and patience.</p>
     </footer>
@@ -598,7 +599,7 @@
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
         /* ---------- Order form -> WhatsApp ---------- */
-        const OWNER_WHATSAPP = '920000000000'; // apna number country code ke saath yahan daalo
+        const OWNER_WHATSAPP = '917827417956'; // apna number country code ke saath yahan daalo
 
         document.getElementById('orderForm').addEventListener('submit', function (e) {
             e.preventDefault();
